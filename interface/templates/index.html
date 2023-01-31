@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <title>Mujib Jiggasa [alpha]</title>
+    <style>
+        .container {
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="submit"] {
+            padding: 10px;
+            margin: 10px;
+            font-size: 20px;
+            width: 100%;
+        }
+
+        h3 {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Mujib Jiggasa [Alpha] </h1>
+        <hr>
+
+        <h3>বাংলায় মুজিব বিষয়ে প্রশ্ন করুন :</h3>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="query" required>
+            <input type="submit" value="Get Answer">
+        </form>
+        {% if prediction %}
+        <h3>Answer: {{ prediction }}</h3>
+        {% endif %}
+
+        <p>Please be aware that this is the model's alpha version and that it completely depends on the currently
+            available,
+            somewhat limited amount of data. If the response is incorrect, kindly add to the dataset <a
+                href="https://docs.google.com/spreadsheets/d/11_FE-XjPvb1lcDBv8XhAqxsRqUoXMyIH0fLcctnMlzU/edit?usp=sharing">here</a>
+        </p>
+    </div>
+</body>
+
+</html>
